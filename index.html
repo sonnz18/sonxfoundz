@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SONEXFOUND</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #00ffcc;
+      font-family: monospace;
+      transition: background 0.3s, color 0.3s;
+    }
+    body.light {
+      background: #f0f0f0;
+      color: #111;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+    .glitch {
+      font-size: 3rem;
+      color: #00ffcc;
+      position: relative;
+      animation: glitch 1s infinite;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+    }
+    .glitch::before {
+      animation: glitchTop 1s infinite;
+      color: #ff00ff;
+      z-index: -1;
+    }
+    .glitch::after {
+      animation: glitchBottom 1s infinite;
+      color: #00ffff;
+      z-index: -1;
+    }
+    @keyframes glitchTop {
+      0% { top: -2px; left: 2px; }
+      20% { top: -2px; left: -2px; }
+      40% { top: 2px; left: 2px; }
+      60% { top: -1px; left: -1px; }
+      80% { top: 1px; left: 1px; }
+      100% { top: 0; left: 0; }
+    }
+    @keyframes glitchBottom {
+      0% { top: 2px; left: -2px; }
+      20% { top: 1px; left: 1px; }
+      40% { top: -1px; left: -1px; }
+      60% { top: 2px; left: 2px; }
+      80% { top: -2px; left: 2px; }
+      100% { top: 0; left: 0; }
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .controls button {
+      background: transparent;
+      border: 1px solid #00ffcc;
+      padding: 0.5rem 1rem;
+      color: inherit;
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+    .articles {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+    .article {
+      background: #111;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-left: 3px solid #00ffcc;
+    }
+    body.light .article {
+      background: #fff;
+      color: #000;
+      border-left: 3px solid #00aaff;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+    }
+    .wa-contact {
+      background: #25d366;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <audio id="hackerSound" src="https://freesound.org/data/previews/270/270308_5121236-lq.mp3"></audio>
+
+  <header>
+    <div class="glitch" data-text="SONEXFOUND">SONEXFOUND</div>
+  </header>
+
+  <div class="controls">
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button onclick="playSound()">Play Hacker FX</button>
+    <a class="wa-contact" href="https://wa.me/6288210017625" target="_blank">Kontak WhatsApp</a>
+  </div>
+
+  <section class="articles">
+    <div class="article">
+      <h2>Apa Itu Serangan DDoS?</h2>
+      <p>Serangan DDoS (Distributed Denial of Service) adalah upaya untuk membuat layanan online tidak tersedia dengan membanjiri lalu lintas dari berbagai sumber.</p>
+    </div>
+    <div class="article">
+      <h2>Jenis Serangan Web Umum</h2>
+      <p>Beberapa serangan populer mencakup SQL Injection, XSS, Brute Force Login, dan Directory Traversal yang mengeksploitasi kelemahan sistem web.</p>
+    </div>
+    <div class="article">
+      <h2>Cara Menghindari Serangan DDoS</h2>
+      <ul>
+        <li>Gunakan layanan CDN seperti Cloudflare untuk menyaring trafik.</li>
+        <li>Batasi jumlah permintaan dari satu IP dengan rate limiting.</li>
+        <li>Gunakan firewall dan sistem deteksi intrusi (IDS/IPS).</li>
+        <li>Monitor trafik secara real-time untuk mendeteksi lonjakan tidak wajar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SONEXFOUND. Semua hak dilindungi.
+  </footer>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('light');
+    }
+    function playSound() {
+      const sound = document.getElementById('hackerSound');
+      sound.volume = 0.3;
+      sound.play();
+    }
+  </script>
+</body>
+</html>
